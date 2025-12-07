@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.App {
+  /* ADDED: Ensure full height */
+  min-height: 100vh;
+  /* FIXED: Use theme variable so area below footer matches theme */
+  /* background-color: var(--bg-primary); */
+  /* ADDED: Smooth theme transition */
+  transition: background-color 0.3s ease;
+}

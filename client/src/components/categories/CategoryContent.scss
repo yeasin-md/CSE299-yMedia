@@ -1,0 +1,155 @@
+.category-content {
+  padding: 2.5rem 2rem; // IMPROVED: Better vertical padding
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  &-loading,
+  &-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-size: 1.2rem;
+    color: var(--text-secondary); // CHANGED: Use CSS variable for theme-aware text
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem; // IMPROVED: Consistent gap between cards
+    padding: 1.5rem 0; // IMPROVED: Better vertical padding
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+}
+
+.category-video-card {
+  border-radius: 12px; // IMPROVED: Consistent border radius
+  background: var(--card-bg); // CHANGED: Use CSS variable so cards match theme
+  box-shadow: 0 2px 8px var(--shadow); // IMPROVED: Softer shadow
+  overflow: hidden;
+  transition: all 0.3s ease; // IMPROVED: Transition all properties smoothly
+  cursor: pointer;
+  border: 1px solid var(--border-color); // ADDED: Subtle border that adapts to theme
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow); // CHANGED: Use CSS variable
+    border-color: var(--text-primary); // ADDED: Border color change on hover
+  }
+
+  .category-video-thumb {
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: 12px 12px 0 0;
+
+    @media screen and (max-width: 768px) {
+      height: 180px !important;
+    }
+  }
+
+  &-info {
+    display: flex;
+    padding: 1rem; // IMPROVED: Better padding
+    gap: 0.75rem; // STANDARDIZED: Same gap as other video cards
+    align-items: flex-start; // STANDARDIZED: Align items to top for consistent layout
+    width: 100%; // ADDED: Ensure full width
+  }
+
+  &-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5c6bc0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    flex-shrink: 0;
+
+    @media screen and (max-width: 768px) {
+      width: 35px;
+      height: 35px;
+      font-size: 0.9rem;
+    }
+  }
+
+  &-details {
+    flex: 1; // STANDARDIZED: Same flex behavior as other cards
+    min-width: 0; // STANDARDIZED: Allow text truncation
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; // STANDARDIZED: Left-align all content
+    padding-left: 0; // STANDARDIZED: No extra padding, rely on container padding
+    gap: 0.25rem; // STANDARDIZED: Consistent spacing between text elements
+    text-align: left; // STANDARDIZED: Explicit left alignment
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s ease; // ADDED: Smooth color transition
+      text-align: left; // STANDARDIZED: Explicit left alignment
+      width: 100%; // STANDARDIZED: Full width for proper alignment
+      max-width: 100%; // ADDED: Prevent overflow
+
+      @media screen and (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: var(--text-secondary); // CHANGED: Use CSS variable for theme-aware text
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s ease; // ADDED: Smooth color transition
+      text-align: left; // STANDARDIZED: Explicit left alignment
+      width: 100%; // STANDARDIZED: Full width for proper alignment
+      max-width: 100%; // ADDED: Prevent overflow
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #5c6bc0;
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      text-transform: capitalize;
+      gap: 0.25rem;
+      text-align: left; // STANDARDIZED: Explicit left alignment
+
+      svg {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  &-time {
+    font-size: 0.75rem !important;
+    color: var(--text-tertiary) !important; // CHANGED: Use CSS variable for theme-aware text
+  }
+}
+

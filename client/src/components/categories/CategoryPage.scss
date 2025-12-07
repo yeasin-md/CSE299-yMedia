@@ -1,0 +1,90 @@
+.category-page {
+  min-height: 100vh;
+  background: var(--bg-secondary); // CHANGED: Use CSS variable so page matches theme
+  padding-top: 80px;
+  transition: background-color 0.3s ease; // ADDED: Smooth theme transition
+
+  @media screen and (max-width: 768px) {
+    padding-top: 60px;
+  }
+
+  // Action Theme
+  &-action {
+    background: linear-gradient(to bottom, #f0f2f5 0%, #ffffff 100%);
+  }
+
+  // Comedy Theme
+  &-comedy {
+    background: linear-gradient(to bottom, #fff5f5 0%, #ffffff 100%);
+  }
+
+  // Drama Theme
+  &-drama {
+    background: linear-gradient(to bottom, #e3f2fd 0%, #ffffff 100%);
+  }
+
+  // Horror Theme
+  &-horror {
+    background: linear-gradient(to bottom, #1a1a1a 0%, #2d2d2d 100%);
+    color: #fff;
+
+    .category-content {
+      color: #fff;
+    }
+
+    .category-video-card {
+      background: #2d2d2d;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      }
+
+      .category-video-details {
+        h4 {
+          color: #fff;
+        }
+
+        p {
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  // Thriller Theme
+  &-thriller {
+    background: linear-gradient(to bottom, #fff8e1 0%, #ffffff 100%);
+  }
+
+  // Romance Theme
+  &-romance {
+    background: linear-gradient(to bottom, #fce4ec 0%, #ffffff 100%);
+  }
+
+  // Sci-Fi Theme
+  &-sciFi {
+    background: linear-gradient(to bottom, #e0f7fa 0%, #ffffff 100%);
+  }
+
+  // Documentary Theme
+  &-documentary {
+    background: linear-gradient(to bottom, #f1f8e9 0%, #ffffff 100%);
+  }
+
+  // Music Theme
+  &-music {
+    background: linear-gradient(to bottom, #fff3e0 0%, #ffffff 100%);
+  }
+
+  // Sports Theme
+  &-sports {
+    background: linear-gradient(to bottom, #fce4ec 0%, #ffffff 100%);
+  }
+
+  // Default Theme
+  &-default {
+    background: linear-gradient(to bottom, #f5f5f5 0%, #ffffff 100%);
+  }
+}
+

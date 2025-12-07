@@ -1,0 +1,13 @@
+.footer {
+  height: 80px; // IMPROVED: Slightly reduced height for better proportions
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem; // IMPROVED: Consistent font size
+  color: var(--text-secondary); // CHANGED: Use CSS variable for theme-aware text
+  background-color: var(--card-bg); // FIXED: Use card-bg to match header instead of bg-secondary
+  border-top: 1px solid var(--border-color); // ADDED: Subtle top border for separation
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; // ADDED: Smooth theme transitions
+  margin-top: auto; // ADDED: Push footer to bottom
+  padding: 1rem 2rem; // ADDED: Better padding
+}

@@ -1,0 +1,431 @@
+.home-container {
+  display: flex;
+  flex: 3;
+  padding-top: 100px;
+  padding-left: 1.5rem; // ADDED: Better horizontal spacing
+  padding-right: 1.5rem; // ADDED: Better horizontal spacing
+  padding-bottom: 2rem; // ADDED: Bottom padding for better spacing
+  background-color: var(--bg-secondary); // ADDED: Use CSS variable for page background
+  min-height: 100vh; // ADDED: Ensure full height coverage
+  transition: background-color 0.3s ease; // ADDED: Smooth theme transition
+  @media screen and (max-width: 550px) {
+    padding-top: 40px;
+    padding-left: 1rem; // ADDED: Reduced padding on mobile
+    padding-right: 1rem; // ADDED: Reduced padding on mobile
+  }
+}
+.home-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.home-part1 {
+  display: flex;
+  // justify-content: center;
+  flex-direction: column;
+  height: 100vh; // Keep full viewport height
+  align-items: center;
+  flex: 1;
+  overflow-y: auto; // FIXED: Make sidebar scrollable when categories overflow
+  overflow-x: hidden; // ADDED: Prevent horizontal scroll
+  scrollbar-width: thin; // ADDED: Thin scrollbar for better UX
+  scrollbar-color: var(--border-color) var(--bg-secondary); // ADDED: Theme-aware scrollbar colors
+  
+  // ADDED: Custom scrollbar styling for webkit browsers
+  &::-webkit-scrollbar {
+    width: 6px; // Thin scrollbar
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: var(--bg-secondary); // Theme-aware track
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color); // Theme-aware thumb
+    border-radius: 3px;
+    
+    &:hover {
+      background: var(--text-tertiary); // Darker on hover
+    }
+  }
+  .home-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex: 1;
+    padding: 1.5rem; // ADDED: Better internal padding
+    p {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+      transition: color 0.3s ease; // ADDED: Smooth color transition
+      margin-bottom: 1rem; // ADDED: Better spacing below greeting
+    }
+    .upload-btn2 {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      transition: all 180ms ease-in-out;
+      cursor: pointer;
+      &:hover {
+        background-color: #e1f1fad9;
+      }
+      span {
+        display: flex;
+        // flex-direction: ;
+        justify-content: center;
+        align-items: center;
+      }
+      .upload-btn2-plus {
+        font-size: 35px;
+        font-weight: 300;
+      }
+    }
+  }
+  .home-cat-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // FIXED: Start from top instead of center for better scroll behavior
+    padding: 1.5rem; // ADDED: Better internal padding
+    min-height: 0; // FIXED: Allow flex child to shrink and enable scrolling
+    p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+      margin-bottom: 1rem; // ADDED: Better spacing below title
+    }
+    h4 {
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 0.5rem 0.75rem; // IMPROVED: Better padding for touch targets
+      margin: 0.5rem 0; // IMPROVED: More consistent spacing
+      border-radius: 7px;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+      background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme-aware background
+      transition: all 200ms ease-in-out;
+      cursor: pointer;
+      &:hover {
+        color: #5c6bc0; // Keep brand color on hover
+        background-color: var(--bg-secondary); // CHANGED: Use CSS variable
+      }
+    }
+    .cat-active {
+      background-color: #5c6bc0; // Keep brand color for active state
+      color: white;
+      box-shadow: 0 2px 8px var(--shadow); // CHANGED: Use CSS variable for shadow
+
+      &:hover {
+        color: white; // Keep white text on hover
+        background-color: #5c6bc0;
+      }
+    }
+  }
+  img {
+    width: 100%;
+  }
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
+}
+.home-part2 {
+  flex: 4;
+  .home-banner-container {
+    img {
+      width: 100%;
+      // margin: 2rem;
+      &:hover {
+        border: 4px solid transparent;
+      }
+    }
+  }
+  .home-videos-container {
+    padding-top: 1.5rem; // IMPROVED: Better top padding
+    padding-left: 1rem; // ADDED: Left padding for better spacing
+    padding-right: 1rem; // ADDED: Right padding for better spacing
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem; // ADDED: Consistent gap between video cards
+    @media screen and (min-width: 750px) {
+      height: 85vh;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+    @media screen and (max-width: 520px) {
+      justify-content: center;
+    }
+    .home-videos {
+      border-radius: 12px; // IMPROVED: Consistent border radius
+      background: var(--card-bg); // CHANGED: Use CSS variable so video cards match theme
+      box-shadow: 0 2px 8px var(--shadow); // IMPROVED: Softer shadow
+      margin: 0; // CHANGED: Remove margin since we're using gap now
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease; // ADDED: Smooth transitions for theme changes and hover
+      border: 1px solid var(--border-color); // ADDED: Subtle border that adapts to theme
+      padding-bottom: 1rem; // IMPROVED: Better internal spacing
+      overflow: hidden; // ADDED: Prevent content overflow
+      
+      &:hover {
+        transform: translateY(-4px); // ADDED: Lift effect on hover
+        box-shadow: 0 8px 24px var(--shadow); // IMPROVED: Enhanced shadow on hover
+        border-color: var(--text-primary); // ADDED: Border color change on hover
+      }
+      .thumb-img {
+        border-top-right-radius: 13px !important;
+        border-top-left-radius: 13px !important;
+        width: 250px !important;
+        height: 150px !important;
+        // object-fit: cover;
+        @media screen and (max-width: 750px) {
+          width: 220px !important;
+        }
+        @media screen and (max-width: 520px) {
+          width: 200px !important;
+        }
+        @media screen and (max-width: 490px) {
+          width: 180px !important;
+        }
+        @media screen and (max-width: 450px) {
+          width: 280px !important;
+        }
+      }
+      @media screen and (max-width: 750px) {
+        width: 220px;
+      }
+      @media screen and (max-width: 520px) {
+        width: 200px;
+      }
+      @media screen and (max-width: 490px) {
+        width: 180px;
+      }
+      @media screen and (max-width: 450px) {
+        width: 280px;
+      }
+      // STANDARDIZED: Style for the flex container holding avatar and text (same as category cards)
+      > div {
+        display: flex;
+        align-items: flex-start; // STANDARDIZED: Align items to top
+        gap: 0.75rem; // STANDARDIZED: Same gap as category cards
+        padding: 1rem; // STANDARDIZED: Same padding as category cards
+        width: 100%; // STANDARDIZED: Full width for proper alignment
+        
+        // STANDARDIZED: Style for the text container div (same layout as category cards)
+        > div:last-child {
+          flex: 1; // STANDARDIZED: Allow text container to take remaining space
+          min-width: 0; // STANDARDIZED: Allow text truncation
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; // STANDARDIZED: Left-align all content
+          text-align: left; // STANDARDIZED: Explicit left alignment
+          padding-left: 0; // STANDARDIZED: No extra padding
+          gap: 0.25rem; // STANDARDIZED: Consistent spacing between text elements
+        }
+      }
+      
+      h4 {
+        padding: 0; // STANDARDIZED: No padding, rely on container
+        margin: 0; // STANDARDIZED: Use gap instead of margin
+        font-size: 16px;
+        font-weight: 500;
+        width: 100%; // STANDARDIZED: Full width for proper alignment
+        max-width: 100%; // STANDARDIZED: Prevent overflow
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+        transition: color 0.3s ease; // ADDED: Smooth color transition
+        text-align: left; // STANDARDIZED: Explicit left alignment
+        @media screen and (max-width: 750px) {
+          font-size: 13px;
+        }
+        @media screen and (max-width: 450px) {
+          font-size: 15px;
+        }
+      }
+      span {
+        display: flex;
+        align-items: center;
+        padding: 0; // STANDARDIZED: No padding
+        margin: 0; // STANDARDIZED: Use gap instead of margin
+        font-size: 14px;
+        text-transform: capitalize;
+        text-align: left; // STANDARDIZED: Explicit left alignment
+        gap: 0.25rem; // STANDARDIZED: Consistent spacing
+        svg {
+          margin-left: 0; // STANDARDIZED: Use gap instead
+        }
+      }
+      p {
+        padding: 0; // STANDARDIZED: No padding
+        margin: 0; // STANDARDIZED: Use gap instead of margin
+        font-size: 13px;
+        color: var(--text-secondary); // CHANGED: Use CSS variable for theme-aware secondary text
+        font-weight: 400;
+        width: 100%; // STANDARDIZED: Full width for proper alignment
+        max-width: 100%; // STANDARDIZED: Prevent overflow
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.3s ease; // ADDED: Smooth color transition
+        text-align: left; // STANDARDIZED: Explicit left alignment
+        @media screen and (max-width: 750px) {
+          font-size: 12px;
+        }
+        @media screen and (max-width: 450px) {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+.upload-btn2 {
+  display: flex;
+  align-items: center;
+  background-color: #e6f6fe;
+  color: #0277bd;
+  padding: 4px 7px;
+  font-weight: 400;
+  border-radius: 5px;
+  margin-right: 5px;
+  // border: 1.4px solid #0277bd;
+  svg {
+    margin-left: 5px;
+  }
+}
+.home-videos-avatar {
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  color: #fff;
+  font-weight: 500;
+  background-color: #5c6bc0;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 750px) {
+    width: 25px;
+    height: 25px;
+  }
+  @media screen and (max-width: 450px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+// .home-banner-container {
+//   // background-color: #262a3a; /* For browsers that do not support gradients */
+//   // background-image: linear-gradient(#262a3a, #262a3a, #262a3a, white);
+// }
+// .carousel-root {
+// }
+.home-banner {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  .legend {
+    background-color: var(--card-bg) !important; // CHANGED: Use theme variable instead of hardcoded white
+    color: #5c6bc0 !important;
+    font-weight: 700;
+    // width: 70px;
+  }
+  .banner-img {
+    background-color: #262a3a;
+    border: 4px solid transparent;
+
+    width: 100%;
+    // height: 100%;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px,
+      rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+    transition: all 300ms ease 0s;
+    cursor: pointer;
+    &:hover {
+      border: 4px solid whitesmoke;
+    }
+  }
+}
+.home-cat-container2 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 350px;
+  font-size: 18px;
+  font-weight: 500;
+  p {
+    margin-bottom: 0.6rem;
+  }
+  .cat-active {
+    background-color: #5c6bc0;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 5px 5px 10px #f5f5f5, -5px -5px 10px #f2f2f2;
+  }
+  h4 {
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 16px;
+
+    margin: 4px 10px 10px 0px;
+    color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+    background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme-aware background
+    transition: all 0.2s ease; // ADDED: Smooth transitions
+  }
+  @media screen and (min-width: 550px) {
+    display: none;
+
+    overflow-x: hidden;
+  }
+}
+.home-settings {
+  margin-top: 30px;
+}
+.home-settings-link {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+  margin-top: 5px;
+  transition: all 0.2s ease; // IMPROVED: Better transition timing
+  padding: 3px 5px;
+  border-radius: 5px;
+  svg {
+    margin-right: 4px;
+    background-color: var(--text-primary); // CHANGED: Use CSS variable
+    color: var(--card-bg); // CHANGED: Use CSS variable for contrast
+    padding: 3px;
+    border-radius: 50%;
+  }
+  &:hover {
+    background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme-aware hover
+  }
+}
+.home-cats2::-webkit-scrollbar {
+  display: none;
+}
+.home-videos-container::-webkit-scrollbar {
+  display: none;
+}
+.home-cats2 {
+  display: flex;
+
+  padding: 0px !important;
+  overflow-y: hidden;
+  width: 350px;
+  overflow-x: scroll;
+}
+.stng {
+  background-color: #48454d;
+  color: #fff;
+  // height: 15px;
+  // width: 15px;
+  margin-left: 5px;
+  // margin-right: -5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}

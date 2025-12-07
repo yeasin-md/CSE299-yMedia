@@ -1,0 +1,479 @@
+// REDESIGNED: Beautiful My Videos page layout
+.my-videos-page {
+  min-height: 100vh;
+  background-color: var(--bg-secondary); // Use theme variable
+  padding-top: 100px; // Account for navbar
+  transition: background-color 0.3s ease;
+  
+  @media screen and (max-width: 550px) {
+    padding-top: 60px;
+  }
+}
+
+// REDESIGNED: Beautiful header section
+.my-videos-header {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-tertiary) 100%);
+  padding: 3rem 2rem; // IMPROVED: More generous padding
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+  
+  .my-videos-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    
+    h1 {
+      font-size: 2.5rem; // IMPROVED: Larger, more prominent
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem 0;
+      transition: color 0.3s ease;
+      
+      @media screen and (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+    
+    .my-videos-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0 0 2rem 0;
+      transition: color 0.3s ease;
+    }
+    
+    // ADDED: Stats section
+    .my-videos-stats {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.5rem;
+        background-color: var(--bg-tertiary);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .stat-icon {
+          font-size: 1.5rem;
+          color: #5c6bc0; // Keep brand color
+        }
+        
+        .stat-number {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: var(--text-primary);
+        }
+        
+        .stat-label {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+}
+
+// REDESIGNED: Main content area with proper spacing
+.my-videos-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem; // IMPROVED: Generous padding
+  transition: background-color 0.3s ease;
+  
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+}
+
+// ADDED: Section styling for uploads and reposts
+.my-videos-section {
+  margin-bottom: 4rem; // IMPROVED: Large spacing between sections
+  
+  &:last-child {
+    margin-bottom: 2rem; // Less margin for last section
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem; // IMPROVED: Better spacing
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    
+    .section-icon {
+      font-size: 1.5rem;
+      color: #5c6bc0; // Keep brand color
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+      transition: color 0.3s ease;
+    }
+    
+    .section-count {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      padding: 0.25rem 0.75rem;
+      background-color: var(--bg-tertiary);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+// ADDED: Grid layout for video cards
+.my-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem; // IMPROVED: Consistent spacing between cards
+  
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @media screen and (max-width: 520px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+// REDESIGNED: Beautiful video card
+.my-videos-card {
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow);
+    border-color: var(--text-primary);
+  }
+  
+  .my-videos-thumbnail-link {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .my-videos-thumb-img {
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: 0;
+    
+    @media screen and (max-width: 768px) {
+      height: 180px !important;
+    }
+  }
+  
+  .my-videos-info {
+    display: flex;
+    gap: 0.75rem; // STANDARDIZED: Same gap as other video cards
+    padding: 1rem; // STANDARDIZED: Same padding as category cards
+    align-items: flex-start; // STANDARDIZED: Align items to top
+    width: 100%; // ADDED: Ensure full width
+  }
+  
+  .my-videos-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5c6bc0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    flex-shrink: 0;
+    
+    @media screen and (max-width: 768px) {
+      width: 35px;
+      height: 35px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .my-videos-details {
+    flex: 1; // STANDARDIZED: Same flex behavior as other cards
+    min-width: 0; // STANDARDIZED: Allow text truncation
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; // STANDARDIZED: Left-align all content
+    text-align: left; // STANDARDIZED: Explicit left alignment
+    padding-left: 0; // STANDARDIZED: No extra padding
+    gap: 0.25rem; // STANDARDIZED: Consistent spacing between text elements
+    
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s ease;
+      text-align: left; // STANDARDIZED: Explicit left alignment
+      width: 100%; // STANDARDIZED: Full width for proper alignment
+      max-width: 100%; // ADDED: Prevent overflow
+    }
+    
+    p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s ease;
+      text-align: left; // STANDARDIZED: Explicit left alignment
+      width: 100%; // STANDARDIZED: Full width for proper alignment
+      max-width: 100%; // ADDED: Prevent overflow
+    }
+    
+    span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem; // STANDARDIZED: Consistent spacing
+      font-size: 0.85rem;
+      color: #5c6bc0;
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      text-transform: capitalize;
+      text-align: left; // STANDARDIZED: Explicit left alignment
+      
+      svg {
+        font-size: 0.9rem;
+      }
+    }
+    
+    .my-videos-time {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin: 0; // STANDARDIZED: Use gap instead of margin
+      padding: 0; // STANDARDIZED: No padding
+      text-align: left; // STANDARDIZED: Explicit left alignment
+    }
+  }
+}
+
+// ADDED: Loading state
+.my-videos-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  min-height: 300px;
+}
+
+// ADDED: Empty state
+.my-videos-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  
+  .empty-icon {
+    font-size: 4rem;
+    color: var(--text-tertiary);
+    margin-bottom: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0 0 0.75rem 0;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0 0 2rem 0;
+  }
+  
+  .empty-action-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #5c6bc0;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: #4a5bb0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(92, 107, 192, 0.3);
+    }
+  }
+}
+
+// LEGACY: Keep old styles for backward compatibility if needed
+.home-videos-container {
+  padding-top: 1.2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: var(--bg-secondary);
+  min-height: calc(100vh - 120px);
+  transition: background-color 0.3s ease;
+  @media screen and (min-width: 750px) {
+    height: 85vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  @media screen and (max-width: 520px) {
+    justify-content: center;
+  }
+  .home-videos {
+    border-radius: 12px; // IMPROVED: Consistent border radius
+    background: var(--card-bg); // CHANGED: Use CSS variable so video cards match theme
+    box-shadow: 0 2px 8px var(--shadow); // IMPROVED: Softer shadow
+    margin: 0; // CHANGED: Remove margin, use gap instead
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; // ADDED: Smooth transitions for theme changes and hover
+    border: 1px solid var(--border-color); // ADDED: Subtle border that adapts to theme
+    padding-bottom: 1rem; // IMPROVED: Better internal spacing
+    overflow: hidden; // ADDED: Prevent content overflow
+    
+    &:hover {
+      transform: translateY(-4px); // ADDED: Lift effect on hover
+      box-shadow: 0 8px 24px var(--shadow); // IMPROVED: Enhanced shadow on hover
+      border-color: var(--text-primary); // ADDED: Border color change on hover
+    }
+    .thumb-img {
+      border-top-right-radius: 13px !important;
+      border-top-left-radius: 13px !important;
+      width: 250px !important;
+      height: 150px !important;
+      // object-fit: cover;
+      @media screen and (max-width: 750px) {
+        width: 220px !important;
+      }
+      @media screen and (max-width: 520px) {
+        width: 200px !important;
+      }
+      @media screen and (max-width: 490px) {
+        width: 180px !important;
+      }
+      @media screen and (max-width: 450px) {
+        width: 280px !important;
+      }
+    }
+    @media screen and (max-width: 750px) {
+      width: 220px;
+    }
+    @media screen and (max-width: 520px) {
+      width: 200px;
+    }
+    @media screen and (max-width: 490px) {
+      width: 180px;
+    }
+    @media screen and (max-width: 450px) {
+      width: 280px;
+    }
+    // ADDED: Style for the flex container holding avatar and text
+    > div {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem; // IMPROVED: Better gap between avatar and text
+      padding: 0.5rem 0.75rem; // ADDED: Consistent padding
+      width: 100%; // FIXED: Use full width for proper alignment
+      
+      // ADDED: Style for the text container div
+      > div:last-child {
+        flex: 1; // FIXED: Allow text container to take remaining space
+        min-width: 0; // FIXED: Allow text truncation
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; // FIXED: Align text to left
+        text-align: left; // FIXED: Explicit left alignment
+      }
+    }
+    
+    h4 {
+      padding: 0; // CHANGED: Remove padding since container has it
+      margin: 0 0 0.25rem 0; // IMPROVED: Better spacing
+      font-size: 16px;
+      font-weight: 500;
+      width: 100%; // FIXED: Use full width for proper alignment
+      max-width: 100%; // ADDED: Prevent overflow
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+      transition: color 0.3s ease; // ADDED: Smooth color transition
+      text-align: left; // FIXED: Explicit left alignment
+      @media screen and (max-width: 750px) {
+        font-size: 13px;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 15px;
+      }
+    }
+    span {
+      display: flex;
+      align-items: center;
+      padding: 0; // CHANGED: Remove padding since container has it
+      margin: 0 0 0.25rem 0; // IMPROVED: Better spacing
+      font-size: 14px;
+      text-transform: capitalize;
+      text-align: left; // FIXED: Explicit left alignment
+      svg {
+        margin-left: 2px;
+      }
+    }
+    p {
+      padding: 0; // CHANGED: Remove padding since container has it
+      margin: 0 0 0.25rem 0; // IMPROVED: Better spacing
+      font-size: 13px;
+      color: var(--text-secondary); // CHANGED: Use CSS variable for theme-aware secondary text
+      font-weight: 400;
+      width: 100%; // FIXED: Use full width for proper alignment
+      max-width: 100%; // ADDED: Prevent overflow
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s ease; // ADDED: Smooth color transition
+      text-align: left; // FIXED: Explicit left alignment
+      @media screen and (max-width: 750px) {
+        font-size: 12px;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 15px;
+      }
+    }
+  }
+}

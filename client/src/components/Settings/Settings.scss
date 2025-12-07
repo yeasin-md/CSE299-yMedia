@@ -1,0 +1,570 @@
+.settings-container {
+  padding: 3rem; // IMPROVED: More generous padding for airy feel
+  background-color: var(--card-bg); // CHANGED: Use CSS variable instead of hardcoded #fff
+  border-radius: 16px; // IMPROVED: Consistent larger border radius
+  margin-top: 0; // CHANGED: Remove top margin since container handles spacing
+  margin-bottom: 3rem; // IMPROVED: Better bottom spacing
+  max-width: 900px; // ADDED: Limit max width for better readability
+  margin-left: auto; // ADDED: Center the container
+  margin-right: auto; // ADDED: Center the container
+  line-height: 1.7; // ADDED: Better line height for readability
+
+  @media screen and (max-width: 750px) {
+    padding: 1.5rem; // IMPROVED: Better mobile padding
+    margin: 0;
+    border-radius: 0;
+    margin-bottom: 2rem; // ADDED: Bottom margin on mobile
+  }
+}
+
+.settings-profile-section {
+  margin-bottom: 3rem; // IMPROVED: More generous spacing
+  padding-bottom: 3rem; // IMPROVED: More generous spacing
+  border-bottom: 1px solid var(--border-color); // IMPROVED: Thinner border for softer look
+
+  .profile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem; // IMPROVED: Better gap between elements
+    margin-bottom: 2rem; // IMPROVED: Better spacing
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #5c6bc0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .profile-info {
+      flex: 1;
+
+      .name-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+
+        h2 {
+          margin: 0;
+          font-size: 1.75rem;
+          font-weight: 600;
+          color: var(--text-primary); // CHANGED: Use CSS variable for theme support
+        }
+
+        .edit-btn {
+          background: none;
+          border: none;
+          color: #5c6bc0;
+          cursor: pointer;
+          padding: 0.25rem 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.875rem;
+        }
+      }
+
+      .edit-name-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        .edit-input {
+          flex: 1;
+          padding: 0.5rem;
+          border: 2px solid #5c6bc0;
+          border-radius: 6px;
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #48454d;
+
+          &:focus {
+            outline: none;
+            border-color: #3f51b5;
+          }
+        }
+
+        .save-btn,
+        .cancel-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .save-btn {
+          color: #4caf50;
+        }
+
+        .cancel-btn {
+          color: #f44336;
+        }
+      }
+
+      .email-display {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--text-secondary); // CHANGED: Use CSS variable for theme support
+        font-weight: 400;
+      }
+    }
+  }
+
+  .bio-section {
+    margin-top: 1.5rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme support
+      font-size: 0.95rem;
+    }
+
+    .bio-textarea {
+      width: 100%;
+      padding: 0.875rem 1rem; // IMPROVED: Better padding for touch targets
+      border: 1px solid var(--border-color); // IMPROVED: Thinner border for softer look
+      border-radius: 8px; // IMPROVED: Consistent border radius
+      background-color: var(--bg-tertiary); // ADDED: Theme-aware background
+      color: var(--text-primary); // ADDED: Theme-aware text color
+      transition: all 0.2s ease; // ADDED: Smooth transitions
+      font-size: 0.95rem;
+      font-family: inherit;
+      resize: vertical;
+
+      &:focus {
+        outline: none;
+        border-color: #5c6bc0;
+      }
+
+      &::placeholder {
+        color: #bdbdbd;
+      }
+    }
+  }
+}
+
+.settings-details-section {
+  margin-bottom: 3rem; // IMPROVED: More generous spacing
+  padding-bottom: 3rem; // IMPROVED: More generous spacing
+  border-bottom: 1px solid var(--border-color); // IMPROVED: Thinner border for softer look
+
+  h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary); // CHANGED: Use CSS variable for theme support
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    .detail-item {
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-primary); // CHANGED: Use CSS variable for theme support
+        font-size: 0.95rem;
+      }
+
+      .disabled-input {
+        width: 100%;
+        padding: 0.875rem 1rem; // IMPROVED: Better padding for touch targets
+        border: 1px solid var(--border-color); // IMPROVED: Thinner border for softer look
+        border-radius: 8px; // IMPROVED: Consistent border radius
+        font-size: 1rem;
+        background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme support
+        color: var(--text-secondary); // CHANGED: Use CSS variable for theme support
+        cursor: not-allowed;
+        transition: all 0.2s ease; // ADDED: Smooth transitions
+      }
+
+      .info-text {
+        display: block;
+        margin-top: 0.25rem;
+        font-size: 0.8rem;
+        color: var(--text-tertiary); // CHANGED: Use CSS variable for theme support
+        font-style: italic;
+      }
+
+      .password-display {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+
+        .disabled-input {
+          flex: 1;
+        }
+
+        .edit-btn {
+          background: #5c6bc0;
+          color: white;
+          border: none;
+          padding: 0.75rem 1.25rem;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          white-space: nowrap;
+        }
+      }
+
+      .password-edit-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .password-input {
+          width: 100%;
+          padding: 0.875rem 1rem; // IMPROVED: Better padding for touch targets
+          border: 1px solid var(--border-color); // IMPROVED: Thinner border for softer look
+          border-radius: 8px; // IMPROVED: Consistent border radius
+          font-size: 1rem;
+          background-color: var(--bg-tertiary); // ADDED: Theme-aware background
+          color: var(--text-primary); // ADDED: Theme-aware text color
+          transition: all 0.2s ease; // ADDED: Smooth transitions
+
+          &:focus {
+            outline: none;
+            border-color: #5c6bc0;
+          }
+
+          &::placeholder {
+            color: #bdbdbd;
+          }
+        }
+
+        .password-actions {
+          display: flex;
+          gap: 0.75rem;
+
+          .save-btn,
+          .cancel-btn {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+
+          .save-btn {
+            background: #4caf50;
+            color: white;
+          }
+
+          .cancel-btn {
+            background: #f44336;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    padding: 0.25rem;
+  }
+
+  &.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+  }
+
+  &.success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #66bb6a;
+  }
+}
+
+.settings-videos-section {
+  .videos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme support
+    }
+
+    .video-count {
+      font-size: 0.95rem;
+      color: var(--text-secondary); // CHANGED: Use CSS variable for theme support
+      font-weight: 500;
+    }
+  }
+
+  .loading-container,
+  .no-videos {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary); // CHANGED: Use CSS variable for theme support
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+
+  .videos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .video-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid var(--border-color); // CHANGED: Use CSS variable for theme support
+    border-radius: 8px;
+    position: relative;
+    background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme support
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+    }
+
+    .video-thumbnail {
+      width: 200px;
+      height: 120px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background-color: var(--bg-primary); // CHANGED: Use theme variable instead of hardcoded black
+
+      @media screen and (max-width: 550px) {
+        width: 100%;
+        height: 200px;
+      }
+
+      .react-player {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+    .video-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .video-title {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary); // CHANGED: Use CSS variable for theme support
+        line-height: 1.4;
+      }
+
+      .video-detail {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--text-secondary); // CHANGED: Use CSS variable for theme support
+        line-height: 1.5;
+      }
+
+      .video-meta {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-tertiary); // CHANGED: Use CSS variable for theme support
+        margin-top: auto;
+      }
+    }
+
+    .delete-video-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #f44336;
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Theme Settings Section - NEW: Styles for theme selection UI
+.settings-theme-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color); // Use CSS variable for border color
+
+  h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary); // Use CSS variable for text color
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .theme-mode-section,
+  .theme-color-section {
+    label {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+      color: var(--text-primary); // Use CSS variable
+      font-size: 0.95rem;
+    }
+  }
+
+  // Theme Mode Buttons (Light/Dark)
+  .theme-mode-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .theme-mode-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--border-color); // Use CSS variable
+    border-radius: 8px;
+    background-color: var(--card-bg); // Use CSS variable
+    color: var(--text-primary); // Use CSS variable
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #5c6bc0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px var(--shadow); // Use CSS variable
+    }
+
+    &.active {
+      background-color: #5c6bc0; // Active state uses brand color
+      color: white;
+      border-color: #5c6bc0;
+    }
+  }
+
+  // Theme Color Buttons (Color swatches)
+  .theme-color-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .theme-color-btn {
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--border-color); // Use CSS variable
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary); // Use CSS variable
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px var(--shadow); // Use CSS variable
+    }
+
+    &.active {
+      border-color: #5c6bc0; // Active state border
+      border-width: 4px;
+      box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.2); // Glow effect
+    }
+
+    @media screen and (max-width: 550px) {
+      width: 60px;
+      height: 60px;
+      font-size: 0.75rem;
+    }
+  }
+}

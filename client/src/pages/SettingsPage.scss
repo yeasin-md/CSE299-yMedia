@@ -1,0 +1,35 @@
+.settingsPg-container {
+  display: flex;
+  align-items: flex-start; // CHANGED: Align to top to prevent overlap
+  justify-content: center;
+  min-height: 100vh; // CHANGED: Use min-height instead of fixed height
+  width: 100%;
+  background-color: var(--bg-secondary); // CHANGED: Use CSS variable for theme support instead of hardcoded #f4f5fe
+  padding: 2rem 1rem; // ADDED: Padding to prevent overlap with footer
+  padding-bottom: 6rem; // ADDED: Extra bottom padding for footer space
+  box-sizing: border-box; // ADDED: Include padding in height calculation
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem; // IMPROVED: Better mobile padding
+    padding-bottom: 5rem; // ADDED: Mobile footer space
+  }
+}
+
+.settingsPg-viewer {
+  width: 70%;
+  max-width: 1000px; // ADDED: Limit max width for better readability
+  max-height: calc(100vh - 200px); // IMPROVED: Better height calculation to prevent overlap
+  margin-top: 0; // CHANGED: Remove top margin since container has padding
+  border-radius: 12px; // IMPROVED: More consistent border radius
+  background-color: var(--card-bg); // CHANGED: Use CSS variable for theme support
+  overflow-y: auto; // IMPROVED: Use auto instead of scroll for better UX
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease; // ADDED: Smooth theme transition
+  box-shadow: 0 4px 16px var(--shadow); // ADDED: Subtle shadow for depth
+  @media screen and (max-width: 750px) {
+    width: 100%;
+    max-height: calc(100vh - 150px); // IMPROVED: Mobile height calculation
+    border-radius: 0; // CHANGED: No border radius on mobile for full width
+  }
+}

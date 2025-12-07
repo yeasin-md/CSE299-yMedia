@@ -1,0 +1,358 @@
+.nav-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1.25rem 2rem; // IMPROVED: Better horizontal padding
+  z-index: 5;
+  box-shadow: 0 2px 8px var(--shadow); // CHANGED: Use CSS variable for shadow that adapts to theme
+  -webkit-box-shadow: 0 2px 8px var(--shadow);
+  -moz-box-shadow: 0 2px 8px var(--shadow);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--card-bg); // CHANGED: Use CSS variable so header matches theme
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; // ADDED: Smooth theme transitions
+  @media screen and (max-width: 768px) {
+    padding: 1rem 1.5rem; // ADDED: Responsive padding
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+}
+.nav-logo {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text color
+  font-size: 1.5rem;
+  font-weight: 600; // IMPROVED: Bolder for better visibility
+  transition: color 0.3s ease; // ADDED: Smooth color transition
+  text-decoration: none; // ADDED: Remove underline
+  gap: 0.5rem; // ADDED: Better spacing between text and icon
+  // CHANGED: Radiating shadow effect with yellowish glow for logo text
+  text-shadow: 
+    0 0 10px rgba(255, 235, 59, 0.6),
+    0 0 20px rgba(255, 235, 59, 0.5),
+    0 0 30px rgba(255, 235, 59, 0.4),
+    0 0 40px rgba(255, 235, 59, 0.3);
+  
+  &:hover {
+    opacity: 0.9; // IMPROVED: Less opacity change for better visibility
+    // CHANGED: Enhanced yellowish shadow on hover
+    text-shadow: 
+      0 0 15px rgba(255, 235, 59, 0.7),
+      0 0 25px rgba(255, 235, 59, 0.6),
+      0 0 35px rgba(255, 235, 59, 0.5),
+      0 0 50px rgba(255, 235, 59, 0.4);
+  }
+  
+  svg {
+    transform: rotatez(-20deg);
+    margin-left: 0; // CHANGED: Remove margin since we use gap
+    color: #e53e3e; // Keep brand color for logo icon
+    font-size: 1.75rem; // IMPROVED: Slightly larger for better visibility
+    // CHANGED: Radiating yellowish shadow effect for logo icon
+    filter: 
+      drop-shadow(0 0 8px rgba(255, 235, 59, 0.7))
+      drop-shadow(0 0 16px rgba(255, 235, 59, 0.6))
+      drop-shadow(0 0 24px rgba(255, 235, 59, 0.5))
+      drop-shadow(0 0 32px rgba(255, 235, 59, 0.4));
+    transition: transform 0.3s ease, filter 0.3s ease; // ADDED: Smooth animation
+  }
+  
+  &:hover svg {
+    transform: rotatez(-15deg) scale(1.05); // ADDED: Interactive hover effect
+    // CHANGED: Enhanced radiating yellowish shadow on hover
+    filter: 
+      drop-shadow(0 0 12px rgba(255, 235, 59, 0.8))
+      drop-shadow(0 0 20px rgba(255, 235, 59, 0.7))
+      drop-shadow(0 0 30px rgba(255, 235, 59, 0.6))
+      drop-shadow(0 0 40px rgba(255, 235, 59, 0.5));
+  }
+}
+.nav-search {
+  flex: 3;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  .nav-searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-icon {
+      width: 60px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #5c6bc0;
+    }
+    svg {
+      color: #fff;
+    }
+    .nav-search-input {
+      justify-content: center;
+      display: flex;
+      width: 550px;
+      height: 35px;
+      outline: none;
+      color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+      font-size: 1.2rem;
+      padding: 0.4rem 1rem;
+      border: none;
+      font-weight: 400;
+      background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme-aware background
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease; // ADDED: Smooth transitions
+      @media screen and (max-width: 920px) {
+        width: 400px;
+      }
+      @media screen and (max-width: 770px) {
+        width: 350px;
+      }
+      @media screen and (max-width: 690px) {
+        width: 300px;
+      }
+    }
+  }
+}
+.nav-account {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    height: 35px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 0.8rem;
+    background-color: #5c6bc0;
+    color: #fff;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    &:hover {
+      background-color: #f4f5fb;
+      color: #5c6bc0;
+    }
+    svg {
+      font-weight: 500;
+      margin-left: 5px;
+    }
+  }
+}
+// .searchInputs {
+//   margin-top: 105px;
+//   display: flex;
+// }
+
+// .search input {
+//   background-color: white;
+//   border: 0;
+//   border-radius: 2px;
+//   border-top-right-radius: 0px;
+//   border-bottom-right-radius: 0px;
+//   font-size: 18px;
+//   padding: 15px;
+//   height: 30px;
+//   width: 300px;
+// }
+
+.searchIcon {
+  height: 60px;
+  width: 50px;
+  background-color: var(--card-bg); // CHANGED: Use theme variable instead of hardcoded white
+  display: grid;
+  place-items: center;
+}
+
+input:focus {
+  outline: none;
+}
+.searchIcon svg {
+  font-size: 35px;
+}
+
+.dataResult {
+  width: 300px;
+  height: 200px;
+  background-color: var(--card-bg); // CHANGED: Use CSS variable so dropdown matches theme
+  box-shadow: 0px 4px 12px var(--shadow); // CHANGED: Use CSS variable for theme-aware shadow
+  -webkit-box-shadow: 0px 4px 12px var(--shadow);
+  -moz-box-shadow: 0px 4px 12px var(--shadow);
+  overflow: hidden;
+  overflow-y: scroll !important;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  z-index: 5;
+  margin-top: 58px;
+  margin-left: -60px;
+  width: 550px;
+  border-radius: 8px; // ADDED: Rounded corners for better look
+  transition: background-color 0.3s ease; // ADDED: Smooth theme transition
+  @media screen and (max-width: 920px) {
+    width: 400px;
+  }
+  @media screen and (max-width: 770px) {
+    width: 350px;
+  }
+  @media screen and (max-width: 690px) {
+    width: 300px;
+  }
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary); // CHANGED: Use CSS variable for theme-aware text
+  transition: background-color 0.2s ease, color 0.2s ease; // ADDED: Smooth hover transitions
+}
+
+.dataItem p {
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--bg-tertiary); // CHANGED: Use CSS variable for theme-aware hover
+}
+
+#clearBtn {
+  cursor: pointer;
+}
+// .nav-search-filtered {
+//   position: absolute;
+//   top: 0;
+//   // left: 0;
+//   // right: 0;
+//   display: flex;
+//   justify-content: flex-start;
+//   margin: auto;
+// }
+
+.nav-container-2 {
+  padding-top: 1rem;
+  @media screen and (min-width: 550px) {
+    display: none;
+  }
+}
+.nav-part1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.8rem;
+  .nav-account {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    span {
+      // width: 35px;
+      // height: 35px;
+      border-radius: 4.5px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin: 0;
+      }
+    }
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--text-primary); // ADDED: Theme-aware text color
+    font-weight: 600; // IMPROVED: Bolder for better visibility
+    gap: 0.5rem; // ADDED: Better spacing
+    // CHANGED: Radiating yellowish shadow effect for mobile logo text
+    text-shadow: 
+      0 0 8px rgba(255, 235, 59, 0.6),
+      0 0 16px rgba(255, 235, 59, 0.5),
+      0 0 24px rgba(255, 235, 59, 0.4);
+    
+    svg {
+      color: #e53e3e; // Keep brand color for logo icon
+      font-size: 1.5rem; // IMPROVED: Better size for mobile
+      // CHANGED: Radiating yellowish shadow effect for mobile logo icon
+      filter: 
+        drop-shadow(0 0 6px rgba(255, 235, 59, 0.7))
+        drop-shadow(0 0 12px rgba(255, 235, 59, 0.6))
+        drop-shadow(0 0 18px rgba(255, 235, 59, 0.5));
+      transition: filter 0.3s ease; // ADDED: Smooth transition
+    }
+  }
+}
+.nav-part2 {
+  margin-top: 1rem;
+  padding-left: 0.8rem;
+  .p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  .nav-search {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .nav-search-input {
+    height: 40px !important;
+    width: 400px !important;
+    @media screen and (max-width: 460px) {
+      width: 375px !important;
+    }
+    @media screen and (max-width: 440px) {
+      width: 355px !important;
+    }
+    @media screen and (max-width: 400px) {
+      width: 307px !important;
+    }
+    @media screen and (max-width: 380px) {
+      width: 270px !important;
+    }
+    @media screen and (max-width: 365px) {
+      width: 265px !important;
+    }
+    -webkit-border-top-left-radius: 50px;
+    -webkit-border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+  .dataResult {
+    margin-left: 0;
+    margin-top: 152px !important;
+    @media screen and (max-width: 400px) {
+      width: 280px !important;
+    }
+    @media screen and (max-width: 380px) {
+      width: 270px !important;
+    }
+    @media screen and (max-width: 365px) {
+      width: 265px !important;
+    }
+  }
+  .search-icon {
+    height: 40px !important;
+    -webkit-border-top-right-radius: 50px;
+    -webkit-border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+}
