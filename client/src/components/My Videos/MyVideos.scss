@@ -1,4 +1,4 @@
-// REDESIGNED: Beautiful My Videos page layout
+// REDESIGNED: My Videos page layout
 .my-videos-page {
   min-height: 100vh;
   background-color: var(--bg-secondary); // Use theme variable
@@ -10,7 +10,7 @@
   }
 }
 
-// REDESIGNED: Beautiful header section
+// REDESIGNED: header section
 .my-videos-header {
   background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-tertiary) 100%);
   padding: 3rem 2rem; // IMPROVED: More generous padding
@@ -157,7 +157,7 @@
   }
 }
 
-// REDESIGNED: Beautiful video card
+// REDESIGNED: video card
 .my-videos-card {
   border-radius: 12px;
   background: var(--card-bg);
@@ -477,3 +477,4 @@
     }
   }
 }
+
